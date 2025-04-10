@@ -204,12 +204,6 @@ body {
     padding: 0 1.25rem;
   }
 
-  .calculator-info {
-    max-width: 90%;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
   .form-card {
     width: 100%;
     max-width: 500px;
