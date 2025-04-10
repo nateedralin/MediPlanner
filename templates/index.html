@@ -3,48 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MediPlanner</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <title>Health Tracker</title>
+  <link rel="stylesheet" href="/static/css/stylesheet.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <h1>MediPlanner</h1>
+      <h1>Health Tracker & Planner</h1>
       <p>Track your wellness goals & needs!</p>
-      <a href="#calculator" class="btn">BMR Calculator</a>
+      <a href="#calculator" class="btn">Start Tracking</a>
     </div>
   </header>
 
-  <!-- Calorie Calculator section -->
   <section id="calculator" class="section">
-    <h2>BMR Calculator</h2>
+    <h2>Calorie Calculator</h2>
 
     <div class="calculator-container">
-      <!-- LEFT SIDE: Info & Result -->
+      <!-- Left side: BMR explanation and result -->
       <div class="calculator-info">
-        <h3>What is Basal Metabolic Rate (BMR)?</h3>
         <p>
-          Your Basal Metabolic Rate (BMR) estimates the amount of calories your body burns at rest
-          in order to perform essential functions, such as breathing and circulation. This BMR calculator
-          helps you find that calorie number based on your given height, weight, age, gender, and overall how active you are.
-          'Your resting BMR' shows the number of calories your body burns in order to stay alive.
-          These calories support essential & vital functions such as digestion, circulation, and breathing.
-          'With activity level' factors in daily movement, whether that be walking or exercising. This calorie amount
-          is your total daily energy expenditure (TDEE). This shows how many calories you need to maintain your current
-          weight based on your lifestyle.
+          Your BMR (Basal Metabolic Rate) estimates the number of calories your body burns at rest
+          to perform essential functions, such as breathing and circulation. This calculator helps you
+          find that calorie number based on your given height, weight, age, gender, and how active you are.
         </p>
 
-          {% if bmr %}
-          <div class="result-box">
-            Your resting BMR is <strong>{{ bmr }}</strong> calories/day.<br />
-            With activity level: <strong>{{ adjusted_bmr }}</strong> calories/day.
-          </div>
-          {% endif %}
+        <h4 style="margin-top: 2rem;">
+          Your resting BMR shows the number of calories your body burns in order to stay alive. These calories support
+          essential & vital functions such as digestion, circulation, and breathing.
+        </h4>
+
+        {% if bmr %}
+        <div class="result-box">
+          Your resting BMR is <strong>{{ bmr }}</strong> calories/day.<br />
+          With activity level: <strong>{{ adjusted_bmr }}</strong> calories/day.
         </div>
+        {% endif %}
       </div>
 
-      <!-- RIGHT SIDE: Form -->
+      <!-- Right side: Form -->
       <form class="form-card" method="POST">
         <input type="number" name="weight" placeholder="Weight (lbs)" required />
 
