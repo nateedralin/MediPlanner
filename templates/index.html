@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Health Tracker</title>
+  <title>MediPlanner</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <h1>Health Tracker & Planner</h1>
+      <h1>MediPlanner</h1>
       <p>Track your wellness goals & needs!</p>
-      <a href="#calculator" class="btn">Start Tracking</a>
+      <a href="#calculator" class="btn">BMR Calculator</a>
     </div>
   </header>
 
@@ -23,7 +23,7 @@
     <div class="calculator-container">
       <!-- LEFT SIDE: Info & Result -->
       <div class="calculator-info">
-        <h3>What is Basal Metabolic Rate (BMR)</h3>
+        <h3>What is Basal Metabolic Rate (BMR)?</h3>
         <p>
           Your Basal Metabolic Rate (BMR) estimates the amount of calories your body burns at rest
           in order to perform essential functions, such as breathing and circulation. This BMR calculator
@@ -31,13 +31,13 @@
         </p>
 
         <div class="bmr-breakdown">
-          <h4>
+          <h5>
             'Your resting BMR' shows the number of calories your body burns in order to stay alive.
             These calories support essential & vital functions such as digestion, circulation, and breathing.
             'With activity level' factors in daily movement, whether that be walking or exercising. This calorie amount
             is your total daily energy expenditure (TDEE). This shows how many calories you need to maintain your current
             weight based on your lifestyle.
-          </h4>
+          </h5>
 
           {% if bmr %}
           <div class="result-box">
