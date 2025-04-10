@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Health Tracker</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,17 +16,26 @@
     </div>
   </header>
 
+  <!-- Calorie Calculator section -->
   <section id="calculator" class="section">
     <h2>Calorie Calculator</h2>
 
     <div class="calculator-container">
-      <!-- LEFT SIDE: Info -->
+      <!-- LEFT SIDE: Info & BMR Result -->
       <div class="calculator-info">
         <h3>What does a BMR Calculator do?</h3>
         <p>
-          BMR (Basal Metabolic Rate) estimates the number of calories your body burns at rest to maintain vital functions like breathing and circulation.
-          This calculator helps you find that number based on your height, weight, age, gender, and how active you are.
+          BMR (Basal Metabolic Rate) estimates the number of calories your body burns at rest
+          to maintain vital functions like breathing and circulation. This calculator helps you
+          find that number based on your height, weight, age, gender, and how active you are.
         </p>
+
+        {% if bmr %}
+        <div class="result-box">
+          Your resting BMR is <strong>{{ bmr }}</strong> calories/day.<br />
+          With activity level: <strong>{{ adjusted_bmr }}</strong> calories/day.
+        </div>
+        {% endif %}
       </div>
 
       <!-- RIGHT SIDE: Form -->
@@ -52,13 +61,6 @@
         <button type="submit" class="btn">Calculate</button>
       </form>
     </div>
-
-    <p class="result">
-      {% if bmr %}
-        Your resting BMR is <strong>{{ bmr }}</strong> calories/day.<br />
-        With activity level: <strong>{{ adjusted_bmr }}</strong> calories/day.
-      {% endif %}
-    </p>
   </section>
 
   <footer class="footer">
