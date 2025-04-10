@@ -103,10 +103,14 @@ body {
   position: relative;
 }
 
+.bmr-breakdown {
+  margin-top: 2rem;
+}
+
 .result-box {
   background: #fff;
   padding: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   font-size: 1.1rem;
@@ -222,8 +226,4 @@ body {
   .form-card {
     gap: 1.25rem;
   }
-
-  .bmr-breakdown {
-  margin-top: 2rem;
-}
 }
