@@ -90,24 +90,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
 }
 
 .calculator-info {
   flex: 1;
-  max-width: 40ch;
+  max-width: 480px;
   text-align: left;
-  font-size: 1rem;
-  color: #14213D;
 }
 
 .form-card {
   background: #fff;
   padding: 2rem;
   max-width: 500px;
-  margin: 0 auto;
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -171,10 +170,18 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 0 1.25rem;
   }
 
   .calculator-info {
+    max-width: 90%;
     text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .form-card {
+    width: 100%;
+    max-width: 500px;
   }
 
   .height-fields {
