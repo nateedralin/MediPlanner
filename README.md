@@ -1,2 +1,2 @@
-# personalproject
-Nate Edralin and Jerome Fernandez's Personal Project 
+# healthtrackerwebsite
+Welcome to Nate Edralin and Jerome Fernandez's Personal Passion Project! 
