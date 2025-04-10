@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Health Tracker</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -18,27 +18,40 @@
 
   <section id="calculator" class="section">
     <h2>Calorie Calculator</h2>
-    <form class="form-card" method="POST">
-      <input type="number" name="weight" placeholder="Weight (lbs)" required />
-      <div class="height-fields">
-        <input type="number" name="height_ft" placeholder="Height (ft)" required />
-        <input type="number" name="height_in" placeholder="Height (in)" required />
+
+    <div class="calculator-container">
+      <!-- LEFT SIDE: Info -->
+      <div class="calculator-info">
+        <h3>What does a BMR Calculator do?</h3>
+        <p>
+          BMR (Basal Metabolic Rate) estimates the number of calories your body burns at rest to maintain vital functions like breathing and circulation.
+          This calculator helps you find that number based on your height, weight, age, gender, and how active you are.
+        </p>
       </div>
-      <input type="number" name="age" placeholder="Age" required />
-      <select name="gender" required>
-        <option value="">Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-      <select name="exercise" required>
-        <option value="1">Sedentary (little or no exercise)</option>
-        <option value="2">Lightly active (1–3 days/week)</option>
-        <option value="3">Moderately active (3–5 days/week)</option>
-        <option value="4">Very active (6–7 days/week)</option>
-        <option value="5">Super active (physical job + training)</option>
-      </select>
-      <button type="submit" class="btn">Calculate</button>
-    </form>
+
+      <!-- RIGHT SIDE: Form -->
+      <form class="form-card" method="POST">
+        <input type="number" name="weight" placeholder="Weight (lbs)" required />
+        <div class="height-fields">
+          <input type="number" name="height_ft" placeholder="Height (ft)" required />
+          <input type="number" name="height_in" placeholder="Height (in)" required />
+        </div>
+        <input type="number" name="age" placeholder="Age" required />
+        <select name="gender" required>
+          <option value="">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <select name="exercise" required>
+          <option value="1">Sedentary (little or no exercise)</option>
+          <option value="2">Lightly active (1–3 days/week)</option>
+          <option value="3">Moderately active (3–5 days/week)</option>
+          <option value="4">Very active (6–7 days/week)</option>
+          <option value="5">Super active (physical job + training)</option>
+        </select>
+        <button type="submit" class="btn">Calculate</button>
+      </form>
+    </div>
 
     <p class="result">
       {% if bmr %}
