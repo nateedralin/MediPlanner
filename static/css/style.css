@@ -113,6 +113,12 @@ body {
   flex-direction: column;
   gap: 1rem;
   flex: 1;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
 }
 
 .form-card input,
@@ -140,6 +146,7 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
+  transition: background 0.3s;
 }
 
 .form-card .btn:hover {
@@ -153,6 +160,12 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   color: #14213D;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1s;
 }
 
 /* Footer */
@@ -162,6 +175,14 @@ body {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Mobile Responsive */
