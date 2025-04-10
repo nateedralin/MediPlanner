@@ -1,67 +1,99 @@
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Hero section */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F1F8FB; /* Azure Whisper background */
+  color: #14213D; /* Oxford Blue text */
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Hero Section */
 .hero {
-  background: linear-gradient(to right, #68b0ab, #8fc0a9);
+  background: #14213D; /* Oxford Blue */
   color: white;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
 }
 
 .hero h1 {
+  font-family: 'DM Serif Display', serif;
   font-size: 3rem;
+  font-weight: normal;
   margin-bottom: 0.5rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 .hero .btn {
-  background: #ffffff;
-  color: #68b0ab;
+  background: #468C98; /* Blue Munsell */
+  color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   transition: background 0.3s;
 }
 
 .hero .btn:hover {
-  background: #f0f0f0;
+  background: #ADD9F4; /* Uranian Blue */
+  color: #14213D;
 }
 
-/* Section */
+/* Calculator Section */
 .section {
-  padding: 3rem 2rem;
+  background-color: #F1F8FB; /* Azure Whisper */
+  padding: 4rem 2rem;
+  color: #14213D;
   text-align: center;
 }
 
 .section h2 {
-  margin-bottom: 1.5rem;
-  color: #444;
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 2px;
+  background-color: #14213D;
+  margin: 0.5rem auto 0;
+  border-radius: 1px;
 }
 
 /* Form Card */
 .form-card {
-  max-width: 400px;
-  margin: 0 auto;
-  background: white;
+  background: #fff;
   padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -70,26 +102,64 @@ body {
 .form-card input,
 .form-card select {
   padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   font-size: 1rem;
+  border: 1px solid #606D5D; /* Ebony */
+  border-radius: 8px;
 }
 
+/* Height Inputs */
+.height-fields {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.height-fields input {
+  flex: 1 1 100px;
+}
+
+/* Form Button */
 .form-card .btn {
-  background: #68b0ab;
+  background: #468C98; /* Blue Munsell */
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .form-card .btn:hover {
-  background: #5aa29e;
+  background: #ADD9F4; /* Uranian Blue */
+  color: #14213D;
 }
 
-/* BMR result */
+/* Result */
 .result {
   margin-top: 1.5rem;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #444;
+  color: #14213D;
+}
+
+/* Footer */
+.footer {
+  background-color: #14213D; /* Oxford Blue */
+  color: #F1F8FB; /* Azure Whisper */
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .height-fields {
+    flex-direction: column;
+  }
+
+  .height-fields input {
+    width: 100%;
+  }
+
+  .form-card {
+    gap: 1.25rem;
+  }
 }
