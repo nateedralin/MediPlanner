@@ -100,6 +100,22 @@ body {
   flex: 1;
   max-width: 480px;
   text-align: left;
+  position: relative;
+}
+
+.result-box {
+  background: #fff;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #14213D;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: 1s;
 }
 
 .form-card {
@@ -146,26 +162,16 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.3s;
+  font-size: 1.1rem;
+  padding: 0.85rem;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .form-card .btn:hover {
   background: #ADD9F4; /* Uranian Blue */
   color: #14213D;
-}
-
-/* Result */
-.result {
-  margin-top: 1.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #14213D;
-
-  /* Animation */
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 1s;
+  transform: scale(1.02);
 }
 
 /* Footer */
