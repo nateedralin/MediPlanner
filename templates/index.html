@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Health Tracker</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,47 +16,51 @@
     </div>
   </header>
 
-  <!-- BMR calculator section -->
+  <!-- Calorie Calculator section -->
   <section id="calculator" class="section">
-    <h2>BMR Calculator</h2>
+    <h2>Calorie Calculator</h2>
 
     <div class="calculator-container">
-      <!-- LEFT SIDE: Info & BMR Result -->
+      <!-- LEFT SIDE: Info & Result -->
       <div class="calculator-info">
-        <h3>What does a BMR Calculator do?</h3>
         <p>
           Your BMR (Basal Metabolic Rate) estimates the amount of calories your body burns at rest
-          in order to perform essential functions, such as breathing and circulation. This BMR calculator helps you
-          find that calory number based on your given height, weight, age, gender, and overall how active you are.
+          in order to perform essential functions, such as breathing and circulation. This BMR calculator
+          helps you find that calorie number based on your given height, weight, age, gender, and overall how active you are.
         </p>
 
-        <div class="BMR-info">
-        <h4>
-          Your resting BMR shows the number of calories your body burns in order to stay alive. These calories support 
-          essential & vital functions such as digestion, circulation, and breathing. 
-        </h4>
+        <div class="bmr-breakdown">
+          <h4>
+            Your resting BMR shows the number of calories your body burns in order to stay alive.
+            These calories support essential & vital functions such as digestion, circulation, and breathing.
+          </h4>
 
-        {% if bmr %}
-        <div class="result-box">
-          Your resting BMR is <strong>{{ bmr }}</strong> calories/day.<br />
-          With activity level: <strong>{{ adjusted_bmr }}</strong> calories/day.
+          {% if bmr %}
+          <div class="result-box">
+            Your resting BMR is <strong>{{ bmr }}</strong> calories/day.<br />
+            With activity level: <strong>{{ adjusted_bmr }}</strong> calories/day.
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
 
       <!-- RIGHT SIDE: Form -->
       <form class="form-card" method="POST">
         <input type="number" name="weight" placeholder="Weight (lbs)" required />
+
         <div class="height-fields">
           <input type="number" name="height_ft" placeholder="Height (ft)" required />
           <input type="number" name="height_in" placeholder="Height (in)" required />
         </div>
+
         <input type="number" name="age" placeholder="Age" required />
+
         <select name="gender" required>
           <option value="">Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
+
         <select name="exercise" required>
           <option value="1">Sedentary (little or no exercise)</option>
           <option value="2">Lightly active (1–3 days/week)</option>
@@ -64,6 +68,7 @@
           <option value="4">Very active (6–7 days/week)</option>
           <option value="5">Super active (physical job + training)</option>
         </select>
+
         <button type="submit" class="btn">Calculate</button>
       </form>
     </div>
