@@ -222,4 +222,8 @@ body {
   .form-card {
     gap: 1.25rem;
   }
+
+  .bmr-breakdown {
+  margin-top: 2rem;
+}
 }
