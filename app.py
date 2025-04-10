@@ -1,74 +1,42 @@
-print("Calorie Deficit Calculator: ")
-print("")
-gender = (input("Gender (M/F): ")).upper()
-age = int(input("Age: "))
-feet = int(input("Feet: "))
-inches = int(input("Inches: "))
-weight = int(input("Weight (lbs): "))
-print("")
-print("")
-print("1 IF youare sedentary (little or no exercise)")
-print("2 IF you are lightly active (light exercise or sports 1-3 days/week)")
-print("3 IF you are moderately active (moderate exercise 3-5 days/week)")
-print("4 IF you are very active (hard exercise 6-7 days/week)")
-print("5 IF you are super active (very hard exerise and/or a physical job)")
-print("")
-exerciseFreq = int(input("How much do you exercise per week? Enter a number 1-5 corresponding to the layout above: "))
+from flask import Flask, render_template, request
 
-totalInches = ((feet * 12) + inches)
-bmi = ((weight * 703) / (totalInches**2))
-bfp =  ((1.20 * bmi) + (0.23 * age) - 10.8 - 5.4) / 100
+app = Flask(__name__)
 
+def calculate_bmr(weight, height, age, gender, bfp, exercise_freq):
+    def mifflin_st_jeor(w, h, a, g):
+        return 66 + (6.23 * w) + (12.7 * h) - (6.8 * a) if g == 'male' else 655 + (4.35 * w) + (4.7 * h) - (4.7 * a)
 
+    def harris_benedict(w, h, a, g):
+        return 88.362 + (13.397 * w) + (4.799 * h) - (5.677 * a) if g == 'male' else 447.593 + (9.247 * w) + (3.098 * h) - (4.330 * a)
 
+    def katch_mcardle(w, bfp):
+        return 370 + (4.536 * (1 - bfp) * w)
 
+    total = mifflin_st_jeor(weight, height, age, gender) + harris_benedict(weight, height, age, gender) + katch_mcardle(weight, bfp)
+    base_bmr = total / 3
+    multiplier = [1.2, 1.375, 1.55, 1.725, 1.9][exercise_freq - 1]
+    return round(base_bmr), round(base_bmr * multiplier)
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    bmr = None
+    adjusted_bmr = None
 
-def mifflinStJeor(pWeight, pHeight, pAge, pGender):
-        if pGender == 'M':
-            bmr = 66 + (6.23 * pWeight) + (12.7 * pHeight) - (6.8 * pAge)
-            return bmr
-        elif pGender == 'F':
-              bmr = (655) + (4.35 * pWeight) + (4.7 * pHeight) - (4.7 * pAge)
-              return bmr
+    if request.method == 'POST':
+        weight = int(request.form['weight'])
+        height_ft = int(request.form['height_ft'])
+        height_in = int(request.form['height_in'])
+        age = int(request.form['age'])
+        gender = request.form['gender']
+        exercise = int(request.form.get('exercise', 1))
 
-def harrisBennedict(pWeight, pHeight, pAge, pGender):
-        if pGender == 'M':  
-            bmr = (88.362 + (13.397 * pWeight) + (4.799 * pHeight) - (5.677 * pAge))
-            return bmr
-        elif pGender == 'F':
-            bmr = (447.593) + (4.35 * pWeight) + (4.7 * pHeight) - (4.7 * pAge)
-            return bmr
-          
-def katchMcArdle(pWeight, pBfp ):
-    bmr = (370 + (4.536 * (1 - pBfp) * pWeight))
-    return bmr
+        height_total = (height_ft * 12) + height_in
+        bmi = (weight * 703) / (height_total ** 2)
+        bfp = ((1.20 * bmi) + (0.23 * age) - (10.8 if gender == 'male' else 0) - 5.4) / 100
 
-def averageBmr(pWeight, pHeight, pAge, pBfp, pGender, funcM, funcH, funcK):
-    total = funcM(pWeight, pHeight, pAge, pGender) + funcH(pWeight, pHeight, pAge, pGender) + funcK(pWeight, pBfp)
-    average = total / 3
-    return average
+        bmr, adjusted_bmr = calculate_bmr(weight, height_total, age, gender, bfp, exercise)
 
+    return render_template('index.html', bmr=bmr, adjusted_bmr=adjusted_bmr)
 
-
-
-#print(mifflinStJeor(weight, totalInches, age), "calories")
-#print(harrisBennedict(weight, totalInches, age), "calories")
-#print(katchMcArdle(weight, bfp), "calories")
-print("")
-print("")
-print("Your resting BMR:", round(averageBmr(weight, totalInches, age, bfp, gender, mifflinStJeor, harrisBennedict, katchMcArdle)))
-if exerciseFreq == 1:
-     print("Your BMR based on your activity level:", round(averageBmr(weight, totalInches, age, bfp, gender, mifflinStJeor, harrisBennedict, katchMcArdle))*1.2)
-elif exerciseFreq == 2:
-     print("Your BMR based on your activity level:", round(averageBmr(weight, totalInches, age, bfp, gender, mifflinStJeor, harrisBennedict, katchMcArdle))*1.375)
-elif exerciseFreq == 3:
-     print("Your BMR based on your activity level:", round(averageBmr(weight, totalInches, age, bfp, gender, mifflinStJeor, harrisBennedict, katchMcArdle))*1.55)
-elif exerciseFreq == 4:
-     print("Your BMR based on your activity level:", round(averageBmr(weight, totalInches, age, bfp, gender, mifflinStJeor, harrisBennedict, katchMcArdle))*1.725)
-elif exerciseFreq == 5:
-     print("Your BMR based on your activity level:", round(averageBmr(weight, totalInches, age, bfp, gender, mifflinStJeor, harrisBennedict, katchMcArdle))*1.9)
-
-
-
-     
+if __name__ == '__main__':
+    app.run(debug=True)
