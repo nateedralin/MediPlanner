@@ -28,7 +28,9 @@
       </select>
       <button type="submit" class="btn">Calculate</button>
     </form>
-    
+    {% if bmr %}
+      <p class="result">Your BMR is <strong>{{ bmr | round(0) }}</strong> calories/day.</p>
+    {% endif %}
   </section>
 </body>
 </html>
