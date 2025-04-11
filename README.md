@@ -1,2 +1,2 @@
 # MediPlanner
-Welcome to Nate Edralin and Jerome Fernandez's Personal Passion Project! 
+Welcome to MediPlanner, a personal project by Nathaniel Edralin & Jerome Fernandez!
