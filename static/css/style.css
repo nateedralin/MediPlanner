@@ -11,25 +11,76 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #F1F8FB; /* Azure Whisper background */
-  color: #14213D; /* Oxford Blue text */
+  background-color: #F1F8FB;
+  color: #14213D;
   line-height: 1.6;
 }
 
-/* Container */
-.container {
-  max-width: 800px;
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(20, 33, 61, 0.95);
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ADD9F4;
 }
 
 /* Hero Section */
 .hero {
-  background: #14213D; /* Oxford Blue */
+  background-image: url('/static/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   color: white;
-  padding: 5rem 2rem;
   text-align: center;
+  padding-top: 5rem;
+}
+
+.hero-overlay {
+  background: rgba(20, 33, 61, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .hero h1 {
@@ -46,7 +97,7 @@ body {
 }
 
 .hero .btn {
-  background: #468C98; /* Blue Munsell */
+  background: #468C98;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -56,13 +107,21 @@ body {
 }
 
 .hero .btn:hover {
-  background: #ADD9F4; /* Uranian Blue */
+  background: #ADD9F4;
   color: #14213D;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
 /* Calculator Section */
 .section {
-  background-color: #F1F8FB; /* Azure Whisper */
+  background-color: #F1F8FB;
   padding: 4rem 2rem;
   color: #14213D;
   text-align: center;
@@ -135,8 +194,6 @@ body {
   flex-direction: column;
   gap: 1rem;
   flex: 1;
-
-  /* Animation */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease forwards;
@@ -147,7 +204,7 @@ body {
 .form-card select {
   padding: 0.75rem;
   font-size: 1rem;
-  border: 1px solid #606D5D; /* Ebony */
+  border: 1px solid #606D5D;
   border-radius: 8px;
 }
 
@@ -161,9 +218,8 @@ body {
   flex: 1 1 100px;
 }
 
-/* Button */
 .form-card .btn {
-  background: #468C98; /* Blue Munsell */
+  background: #468C98;
   color: white;
   border: none;
   cursor: pointer;
@@ -175,15 +231,15 @@ body {
 }
 
 .form-card .btn:hover {
-  background: #ADD9F4; /* Uranian Blue */
+  background: #ADD9F4;
   color: #14213D;
   transform: scale(1.02);
 }
 
 /* Footer */
 .footer {
-  background-color: #14213D; /* Oxford Blue */
-  color: #F1F8FB; /* Azure Whisper */
+  background-color: #14213D;
+  color: #F1F8FB;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
