@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediPlanner – BMR Calculator</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">MediPlan</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/bmr">BMR Calculator</a></li>
+        <li><a href="#">Planner</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Calculator Section -->
+  <section id="calculator" class="section">
+    <h2>Calorie Calculator</h2>
+
+    <div class="calculator-container">
+      <!-- Left: Info -->
+      <div class="calculator-info">
+        <h3>What is Basal Metabolic Rate (BMR)?</h3>
+        <p>
+          Your Basal Metabolic Rate (BMR) estimates the number of calories your body burns at rest
+          to perform essential functions, such as breathing and circulation.
+        </p>
+
+        <h4 style="margin-top: 1rem;">
+          Your resting BMR shows the number of calories your body burns in order to stay alive.
+          These calories support essential & vital functions such as digestion, circulation, and breathing.
+        </h4>
+
+        {% if bmr %}
+        <div class="result-box">
+          Your resting BMR is <strong>{{ bmr }}</strong> calories/day.<br />
+          With activity level: <strong>{{ adjusted_bmr }}</strong> calories/day.
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Right: Form -->
+      <form class="form-card" method="POST">
+        <input type="number" name="weight" placeholder="Weight (lbs)" required />
+        <div class="height-fields">
+          <input type="number" name="height_ft" placeholder="Height (ft)" required />
+          <input type="number" name="height_in" placeholder="Height (in)" required />
+        </div>
+        <input type="number" name="age" placeholder="Age" required />
+        <select name="gender" required>
+          <option value="">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <select name="exercise" required>
+          <option value="1">Sedentary (little or no exercise)</option>
+          <option value="2">Lightly active (1–3 days/week)</option>
+          <option value="3">Moderately active (3–5 days/week)</option>
+          <option value="4">Very active (6–7 days/week)</option>
+          <option value="5">Super active (physical job + training)</option>
+        </select>
+        <button type="submit" class="btn">Calculate</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Jerome & Nate, 2025.</p>
+  </footer>
+
+</body>
+</html>
