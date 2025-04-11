@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 import os
 
 app = Flask(__name__)
+app.secret_key = 'supersecret'
 
 def calculate_bmr(weight, height, age, gender, bfp, exercise_freq):
     def mifflin_st_jeor(w, h, a, g):
@@ -13,13 +14,21 @@ def calculate_bmr(weight, height, age, gender, bfp, exercise_freq):
     def katch_mcardle(w, bfp):
         return 370 + (4.536 * (1 - bfp) * w)
 
-    total = mifflin_st_jeor(weight, height, age, gender) + harris_benedict(weight, height, age, gender) + katch_mcardle(weight, bfp)
+    total = (
+        mifflin_st_jeor(weight, height, age, gender) +
+        harris_benedict(weight, height, age, gender) +
+        katch_mcardle(weight, bfp)
+    )
     base_bmr = total / 3
     multiplier = [1.2, 1.375, 1.55, 1.725, 1.9][exercise_freq - 1]
     return round(base_bmr), round(base_bmr * multiplier)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/bmr', methods=['GET', 'POST'])
+def bmr():
     bmr = None
     adjusted_bmr = None
 
@@ -37,7 +46,7 @@ def index():
 
         bmr, adjusted_bmr = calculate_bmr(weight, height_total, age, gender, bfp, exercise)
 
-    return render_template('index.html', bmr=bmr, adjusted_bmr=adjusted_bmr)
+    return render_template('bmr.html', bmr=bmr, adjusted_bmr=adjusted_bmr)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
