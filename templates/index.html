@@ -8,30 +8,47 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  
+  <!-- navbar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">MediPlanner</a>
+      <a href="/" class="logo">MediPlanner</a>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="/bmr">BMR Calculator</a></li>
         <li><a href="#">Planner</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-overlay">
-      <div class="container">
-        <h1>MediPlanner</h1>
-        <p>Track your wellness goals & needs!</p>
-      </div>
+  <!-- hero -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <h1>MediPlanner</h1>
+      <p>Track your wellness goals & needs!</p>
+      <a href="/bmr" class="btn">BMR Calculator</a>
     </div>
   </header>
+
+  <!-- about -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2>About MediPlanner</h2>
+      <p>
+        MediPlanner is a simple health tracking tool that helps users calculate their daily calorie needs 
+        and plan for wellness. Whether you're trying to lose weight, maintain your energy, or manage your 
+        health routines, MediPlanner gives you a starting point.
+      </p>
+      <p>
+        Built with a focus on usability and clarity, MediPlanner combines modern web design with 
+        practical health tools — right in your browser.
+      </p>
+    </div>
+  </section>
+
+  <!-- footer -->
   <footer class="footer">
     <p>© Jerome & Nate, 2025.</p>
   </footer>
-
 </body>
 </html>
