@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="/" class="logo">MediPlan</a>
@@ -22,23 +22,21 @@
     </div>
   </nav>
 
-  <!-- Calculator Section -->
+  <!-- calculator section -->
   <section id="calculator" class="section">
-    <h2>Calorie Calculator</h2>
+    <h2>BMR Calculator</h2>
 
     <div class="calculator-container">
       <!-- Left: Info -->
       <div class="calculator-info">
         <h3>What is Basal Metabolic Rate (BMR)?</h3>
         <p>
-          Your Basal Metabolic Rate (BMR) estimates the number of calories your body burns at rest
-          to perform essential functions, such as breathing and circulation.
-        </p>
-
-        <h4 style="margin-top: 1rem;">
           Your resting BMR shows the number of calories your body burns in order to stay alive.
           These calories support essential & vital functions such as digestion, circulation, and breathing.
-        </h4>
+          'With activity level' includes your resting BMR plus the calories your body burns from your daily 
+          activity (like walking, working out, or just moving around).It’s your Total Daily Energy Expenditure 
+          (TDEE) — the number of calories you need to maintain your current weight based on your lifestyle.
+        </p>
 
         {% if bmr %}
         <div class="result-box">
@@ -74,7 +72,7 @@
   </section>
 
   <footer class="footer">
-    <p>Jerome & Nate, 2025.</p>
+    <p>© Jerome & Nate, 2025.</p>
   </footer>
 
 </body>
