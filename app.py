@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import os
 
 app = Flask(__name__)
@@ -13,16 +13,18 @@ def calculate_bmr(weight, height, age, gender, bfp, exercise_freq):
     def katch_mcardle(w, bfp):
         return 370 + (4.536 * (1 - bfp) * w)
 
-    total = mifflin_st_jeor(weight, height, age, gender) + harris_benedict(weight, height, age, gender) + katch_mcardle(weight, bfp)
+    total = (
+        mifflin_st_jeor(weight, height, age, gender) +
+        harris_benedict(weight, height, age, gender) +
+        katch_mcardle(weight, bfp)
+    )
+
     base_bmr = total / 3
     multiplier = [1.2, 1.375, 1.55, 1.725, 1.9][exercise_freq - 1]
     return round(base_bmr), round(base_bmr * multiplier)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    bmr = None
-    adjusted_bmr = None
-
     if request.method == 'POST':
         weight = int(request.form['weight'])
         height_ft = int(request.form['height_ft'])
@@ -36,6 +38,10 @@ def index():
         bfp = ((1.20 * bmi) + (0.23 * age) - (10.8 if gender == 'male' else 0) - 5.4) / 100
 
         bmr, adjusted_bmr = calculate_bmr(weight, height_total, age, gender, bfp, exercise)
+        return redirect(url_for('index', bmr=bmr, adjusted_bmr=adjusted_bmr))
+
+    bmr = request.args.get('bmr')
+    adjusted_bmr = request.args.get('adjusted_bmr')
 
     return render_template('index.html', bmr=bmr, adjusted_bmr=adjusted_bmr)
 
