@@ -18,16 +18,15 @@ body {
 
 /* Navigation Bar */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(20, 33, 61, 0.95);
+  background-color: #14213D;
   padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
 .nav-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -36,8 +35,8 @@ body {
 
 .logo {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.75rem;
-  color: #ffffff;
+  font-size: 1.8rem;
+  color: white;
   text-decoration: none;
 }
 
@@ -47,62 +46,58 @@ body {
   gap: 2rem;
 }
 
-.nav-links a {
-  color: #ffffff;
+.nav-links li a {
+  color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links li a:hover {
   color: #ADD9F4;
 }
 
 /* Hero Section */
 .hero {
-  background-image: url('/static/images/bg.jpeg');
+  background-image: url('/static/img/bg.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  color: white;
   text-align: center;
-  padding-top: 5rem;
+  padding: 2rem;
 }
 
-.hero-overlay {
-  background: rgba(20, 33, 61, 0.7);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+.hero-content {
+  background: rgba(20, 33, 61, 0.6);
+  padding: 2rem 3rem;
+  border-radius: 12px;
 }
 
 .hero h1 {
   font-family: 'DM Serif Display', serif;
   font-size: 3rem;
-  font-weight: normal;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero p {
   font-size: 1.25rem;
-  font-weight: 400;
   margin-bottom: 2rem;
 }
 
 .hero .btn {
   background: #468C98;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 1.75rem;
+  border: none;
   border-radius: 8px;
-  text-decoration: none;
+  font-size: 1.1rem;
   font-weight: 600;
+  text-decoration: none;
   transition: background 0.3s;
 }
 
@@ -111,129 +106,23 @@ body {
   color: #14213D;
 }
 
-/* Container */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-/* Calculator Section */
-.section {
-  background-color: #F1F8FB;
+/* About Section */
+.about-section {
+  background-color: #ffffff;
   padding: 4rem 2rem;
-  color: #14213D;
   text-align: center;
 }
 
-.section h2 {
+.about-section h2 {
   font-family: 'DM Serif Display', serif;
   font-size: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
-  display: inline-block;
+  margin-bottom: 1rem;
 }
 
-.section h2::after {
-  content: "";
-  display: block;
-  width: 60%;
-  height: 2px;
-  background-color: #14213D;
-  margin: 0.5rem auto 0;
-  border-radius: 1px;
-}
-
-.calculator-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 2rem auto 0;
-  padding: 0 1rem;
-  flex-wrap: wrap;
-}
-
-.calculator-info {
-  flex: 1;
-  min-width: 300px;
-  max-width: 480px;
-  text-align: left;
-  position: relative;
-}
-
-.bmr-breakdown {
-  margin-top: 2rem;
-}
-
-.result-box {
-  background: #fff;
-  padding: 1.5rem;
-  margin-top: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #14213D;
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-  transform: translateY(20px);
-  animation-delay: 1s;
-}
-
-.form-card {
-  background: #fff;
-  padding: 2rem;
-  max-width: 500px;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex: 1;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.2s;
-}
-
-.form-card input,
-.form-card select {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #606D5D;
-  border-radius: 8px;
-}
-
-.height-fields {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.height-fields input {
-  flex: 1 1 100px;
-}
-
-.form-card .btn {
-  background: #468C98;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.85rem;
-  border-radius: 8px;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.form-card .btn:hover {
-  background: #ADD9F4;
-  color: #14213D;
-  transform: scale(1.02);
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.8;
 }
 
 /* Footer */
@@ -245,43 +134,23 @@ body {
   font-size: 0.9rem;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Mobile Responsive */
+/* Responsive */
 @media (max-width: 768px) {
-  .calculator-container {
+  .nav-links {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 1.25rem;
+    gap: 1rem;
+    align-items: flex-end;
   }
 
-  .calculator-info {
-    max-width: 90%;
-    text-align: center;
-    margin-bottom: 2rem;
+  .hero h1 {
+    font-size: 2.25rem;
   }
 
-  .form-card {
-    width: 100%;
-    max-width: 500px;
+  .hero-content {
+    padding: 1.5rem 2rem;
   }
 
-  .height-fields {
-    flex-direction: column;
-  }
-
-  .height-fields input {
-    width: 100%;
-  }
-
-  .form-card {
-    gap: 1.25rem;
+  .about-section p {
+    padding: 0 1rem;
   }
 }
