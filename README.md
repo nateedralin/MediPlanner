@@ -17,6 +17,7 @@ Check out the features below!
 🌐 Live deployment via Render with GitHub integration
 
 🛠️ Tech Stack
+
 Frontend: HTML, CSS (custom + responsive), JavaScript (animations)
 
 Backend: Python, Flask
