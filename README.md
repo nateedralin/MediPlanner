@@ -12,16 +12,20 @@ Check out the features below!
 
   - Katch-McArdle
 
-📈 Future Planner Integration for meds, meals, and fitness scheduling (in progress)
+📈 Future Planner integration for keeping track of meds, meals, and fitness / workout scheduling (in progress)
 
 🌐 Live deployment via Render with GitHub integration
 
 🛠️ Tech Stack
 
-Frontend: HTML, CSS (custom + responsive), JavaScript (animations)
+  - Frontend: HTML, CSS (custom + responsive), JavaScript (animations)
 
-Backend: Python, Flask
+  - Backend: Python, Flask
 
-Deployment: Render 
+  - Deployment: Render
+
+![Homepage Preview](static/images/homepage.png)
+
+
 
 
