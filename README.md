@@ -24,7 +24,12 @@ Check out the features below!
 
   - Deployment: Render
 
+Homepage:
 ![Homepage Preview](static/images/homepage.png)
+
+
+BMR Calculator Page:
+![Homepage Preview](static/images/bmr.png)
 
 
 
