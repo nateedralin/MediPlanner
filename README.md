@@ -29,7 +29,7 @@ Homepage:
 
 
 BMR Calculator Page:
-![Homepage Preview](static/images/bmr.png)
+![Homepage Preview](static/images/bmrpage.png)
 
 
 
