@@ -4,6 +4,7 @@ MediPlanner is a a responsive full-stack calorie tracking web application develo
 Check out the features below!
 
 🔍 Features
+
 🔢 BMR Calculator that calculates the average of 3 scientific formulas:
 
   - Mifflin-St Jeor
